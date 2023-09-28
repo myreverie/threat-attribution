@@ -2,3 +2,5 @@
 ATTACK-BERT
 
 cti/
+
+__pycache__/

@@ -41,6 +41,11 @@ def softmax(x):
     f_x = e_x / sum 
     return f_x
 
+def normalize(vecs):
+    """向量标准化
+    """
+    return vecs / (vecs**2).sum(axis=1, keepdims=True)**0.5
+
 TECHNIQUES_NUM = len(get_techniques())
 GROUPS_NUM = len(get_group2techniques_data().keys())
 TECHNIQUE_ATTCK_ID_TO_INDEX = get_technique_attck_id_to_index(get_techniques())

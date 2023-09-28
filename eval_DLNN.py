@@ -1,6 +1,5 @@
 import torch
 import torch.nn as nn
-import torch.nn.functional as F
 import torch.optim as optim
 from torch.utils.data import DataLoader, Dataset, random_split
 
@@ -19,19 +18,6 @@ class SingleLayerNet(nn.Module):
     def forward(self, x):
         x = self.fc(x)
         return x
-
-
-group2techniques = get_group2techniques_data()
-techniques = get_techniques()
-
-
-# 设置超参数
-input_size = TECHNIQUES_NUM
-output_classes = GROUPS_NUM
-learning_rate = 0.001
-batch_size = 64
-epochs = 10
-
 
 
 class SampledEventsDataset(Dataset):
@@ -55,79 +41,83 @@ class SampledEventsDataset(Dataset):
 
     def __getitem__(self, idx):
         return self.events[idx]
-# 加载数据
-dataset = SampledEventsDataset(group2techniques)
 
-# 确定划分比例
-train_ratio = 0.8  # 训练集比例
-test_ratio = 0.2   # 测试集比例
+def load_data(group2techniques, batch_size, train_ratio=0.8):
+    """创建DataLoader"""
+    # 加载数据
+    dataset = SampledEventsDataset(group2techniques)
 
-# 计算划分的样本数量
-total_samples = len(dataset)
-train_size = int(train_ratio * total_samples)
-test_size = total_samples - train_size
+    # 确定划分比例
+    test_ratio = 1 - train_ratio # 测试集比例
 
-# 划分数据集
-train_dataset, test_dataset = random_split(dataset, [train_size, test_size])
+    # 计算划分的样本数量
+    total_samples = len(dataset)
+    train_size = int(train_ratio * total_samples)
+    test_size = total_samples - train_size
 
-# 使用 DataLoader 加载数据
-train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
-test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
+    # 划分数据集
+    train_dataset, test_dataset = random_split(dataset, [train_size, test_size])
 
+    # 使用 DataLoader 加载数据
+    train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
+    test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=False)
+    print(len(train_dataset))
 
-print(len(train_dataset))
-# 创建模型
-model = SingleLayerNet(input_size, output_classes)
+    return train_loader, test_loader
 
-# 定义损失函数和优化器
-criterion = nn.CrossEntropyLoss()
-optimizer = optim.Adam(model.parameters(), lr=learning_rate)
+def train(model, train_loader, learning_rate, epochs):
+    """模型训练"""
+    # 定义损失函数和优化器
+    criterion = nn.CrossEntropyLoss()
+    optimizer = optim.Adam(model.parameters(), lr=learning_rate)
+    for epoch in range(epochs):
+        total_loss = 0
+        for technique_vector, group_vector in train_loader:
+            model.to(DEVICE)
+            technique_vector.to(DEVICE)
+            group_vector.to(DEVICE)
+            # 正向传播
+            output = model(technique_vector)
+            loss = criterion(output, group_vector)
 
-# 训练模型
-for epoch in range(epochs):
-    total_loss = 0
-    for technique_vector, group_vector in train_loader:
-        model.to(DEVICE)
-        technique_vector.to(DEVICE)
-        group_vector.to(DEVICE)
-        # 正向传播
-        output = model(technique_vector)
-        loss = criterion(output, group_vector)
+            # 反向传播和优化
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
 
-        # 反向传播和优化
-        optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()
+            total_loss += loss.item()
 
-        total_loss += loss.item()
+        print(f'Epoch [{epoch+1}/{epochs}], Loss: {total_loss/len(train_loader)}')
+    print('训练完成!')
 
-    print(f'Epoch [{epoch+1}/{epochs}], Loss: {total_loss/len(train_loader)}')
+def eval(model, test_loader):
+    """在测试集上评估模型"""
+    model.eval()
 
-print('训练完成!')
+    correct = 0
+    total = 0
+    with torch.no_grad():
+        for technique_vector, group_vector in test_loader:
+            model.to(DEVICE)
+            technique_vector.to(DEVICE)
+            group_vector.to(DEVICE)
+            output = model(technique_vector)
+            _, predict = torch.max(output.data, 1)
+            _, label = torch.max(group_vector.data, 1)
+            total += label.size(0)
+            correct += (predict == label).sum().item()
+    print(f'模型在测试集上的准确率为: {100 * correct / total}%')
 
+def save_model(model, model_name):
+    """保存训练好的模型"""
+    torch.save(model, f'./model/{model_name}.pth')
 
+def load_model(model_name):
+    """加载训练好的模型"""
+    return torch.load(f'./model/{model_name}.pth')
 
-# 在测试集上评估模型
-model.eval()
-
-correct = 0
-total = 0
-with torch.no_grad():
-    for technique_vector, group_vector in test_loader:
-        model.to(DEVICE)
-        technique_vector.to(DEVICE)
-        group_vector.to(DEVICE)
-        output = model(technique_vector)
-        _, predict = torch.max(output.data, 1)
-        _, label = torch.max(group_vector.data, 1)
-        total += label.size(0)
-        correct += (predict == label).sum().item()
-
-print(f'模型在测试集上的准确率为: {100 * correct / total}%')
-
-# 推理
-# APT28_techniques = {"T1190", "T1078", "T1078.002", "T1505.003", "T1190", "T1098.002", "T1110.003", "T1003.001", "T1003.003", "T1021.002", "T1560.001", "T1005", "T1039", "T1213", "T1074.002", "T1114.002", "T1115", "T1036", "T1036.003", "T1036.005", "T1048.002", "T1030"}
-def attribute(event_techniques):
+def attribute(model, event_techniques):
+    """使用训练好的模型进行归因分析"""
     with torch.no_grad():
         technique_vector = torch.zeros(TECHNIQUES_NUM)
         for technique in event_techniques:
@@ -140,4 +130,27 @@ def attribute(event_techniques):
         attribution_result.sort(key=lambda x: x[0], reverse=True)
         for index, result in enumerate(attribution_result):
             print(f'Top: {index+1}, Probability: {round(result[0]*100, 2)}%, Group: {result[1]}')
-attribute(Turla_1_techniques)
+
+def train_and_save():
+    group2techniques = get_group2techniques_data()
+    # 设置超参数
+    input_size = TECHNIQUES_NUM
+    output_classes = GROUPS_NUM
+    learning_rate = 0.001
+    batch_size = 64
+    epochs = 10
+    # 创建模型
+    model = SingleLayerNet(input_size, output_classes)
+    # 加载数据
+    train_loader, test_loader = load_data(group2techniques, batch_size)
+
+    train(model, train_loader, learning_rate, epochs)
+    eval(model, test_loader)
+    save_model(model, 'DLNN')
+
+def load_and_attribute(event_techniques):
+    model = load_model('DLNN')
+    attribute(model, event_techniques)
+
+if __name__ == '__main__':
+    load_and_attribute(APT28_1_techniques)
