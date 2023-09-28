@@ -3,7 +3,7 @@ import csv
 from tqdm import tqdm
 sentences = ["Task Type", "Job Type"]
 
-model = SentenceTransformer('./ATTACK-BERT')
+model = SentenceTransformer('./model/ATTACK-BERT')
 embeddings = model.encode(sentences)
 
 from sklearn.metrics.pairwise import cosine_similarity
@@ -12,7 +12,7 @@ print(cosine_similarity([embeddings[0]], [embeddings[1]]))
 import itertools
 import json
 def load_data():
-    with open('./T1053.005.txt', 'r') as f:
+    with open('./data/T1053.005.txt', 'r') as f:
         json_list = json.loads(f.read())
         field_key_set = set()
         for i in json_list:

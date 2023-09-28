@@ -177,7 +177,7 @@ def procedure_text_preprocess(text):
 
 
 def test1():
-    mitre_attack_data = MitreAttackData("./cti/enterprise-attack/enterprise-attack.json")
+    mitre_attack_data = MitreAttackData("./data/cti/enterprise-attack/enterprise-attack.json")
     src = FileSystemSource('./cti/enterprise-attack')
     techniques = mitre_attack_data.get_techniques()
     pprint(techniques[0])
@@ -187,7 +187,7 @@ def test1():
 
 
 def test_by_specific_technique(technique_id):
-    mitre_attack_data = MitreAttackData("./cti/enterprise-attack/enterprise-attack.json")
+    mitre_attack_data = MitreAttackData("./data/cti/enterprise-attack/enterprise-attack.json")
     src = FileSystemSource('./cti/enterprise-attack')
     technique_object_id = mitre_attack_data.get_object_by_attack_id(technique_id, 'attack-pattern').id
     print(technique_object_id)

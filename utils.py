@@ -4,7 +4,7 @@ from collections import defaultdict
 
 import numpy as np
 
-mitre_attack_data = MitreAttackData("./cti/enterprise-attack/enterprise-attack.json")
+mitre_attack_data = MitreAttackData("./data/cti/enterprise-attack/enterprise-attack.json")
 def get_group2techniques_data():
     """获取组织到技术的映射"""
     techniques_used_by_groups = mitre_attack_data.get_all_techniques_used_by_all_groups()
