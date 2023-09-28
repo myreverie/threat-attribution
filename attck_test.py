@@ -15,6 +15,11 @@ from langchain import PromptTemplate, FewShotPromptTemplate
 from langchain.prompts.pipeline import PipelinePromptTemplate
 from langchain.output_parsers import PydanticOutputParser
 from pydantic import BaseModel
+import configparser
+
+config = configparser.ConfigParser()
+config.read('./config.ini')
+API_KEY = config.get('GPT', 'api_key')
 
 
 examples = [
@@ -99,7 +104,7 @@ def is_valid_format(text, parser):
         return False
     except json.decoder.JSONDecodeError:
         return False
-def get_result_from_gpt(text, temperature=0.4, n=5, api_key='sk-GVA9bn7S3fOv7qB1tHCYchnwI5T4yfuQTLZ8sMtiGKsq62zW'):
+def get_result_from_gpt(text, api_key, temperature=0.4, n=5):
     prompt_template = CandicatedTTPSchemaGeneratePromptTemplate(examples)
     prompt_string = prompt_template.get_prompt_string(text)
     candicated_template_list = []
@@ -196,7 +201,7 @@ def test_by_specific_technique(technique_id):
     for index, procedure_example in enumerate(procedure_example_list):
         print(f'第{index}/{len(procedure_example_list)}个程序示例')
         print(procedure_example)
-        candicated_template_list = get_result_from_gpt(procedure_example)
+        candicated_template_list = get_result_from_gpt(procedure_example, API_KEY)
         template_list.append(candicated_template_list)
         print(candicated_template_list)
     print('-----------------')
@@ -204,7 +209,7 @@ def test_by_specific_technique(technique_id):
 
 
 def test2():
-    get_result_from_gpt('HAFNIUM has checked for network connectivity from a compromised host using ping, including attempts to contact google[.]com.')
+    get_result_from_gpt('HAFNIUM has checked for network connectivity from a compromised host using ping, including attempts to contact google[.]com.', API_KEY)
 
 
 def template_aggregate(template_json):
@@ -269,4 +274,4 @@ def louvain_clustering(graph, resolution=1):
 if __name__ == '__main__':
     # test_by_specific_technique('T1053.005')
     # template_aggregate('[[{"Slot":[{"Signed Status":["incompletely signed"]},{"Certificate Status":["revoked"]}]},{"Slot":[{"Signed Status":["incompletely signed"]},{"Certificate Status":["revoked"]},{"Malware Name":["WindTail"]}]},{"Slot":[{"Signed Status":["incompletely signed"]},{"Certificate Status":["revoked"]}]}],[{"Slot":[{"Signed with Authenticode Certificate":["Invalid"]}]},{"Slot":[{"Signed with":["invalid Authenticode certificate"]}]},{"Slot":[{"Malware Name":["BADNEWS"]},{"Signature":["invalid Authenticode certificate"]},{"Purpose":["look more legitimate"]}]}],[{"Slot":[{"Stage":["1"]},{"Module Type":["64-bit"]},{"Signed with Fake Certificates":["Microsoft Corporation","Broadcom Corporation"]}]},{"Slot":[{"Stage":["1"]},{"Module Type":["64-bit"]},{"Signed Certificates":["fake certificates masquerading as originating from Microsoft Corporation and Broadcom Corporation"]}]},{"Slot":[{"Stage":["1"]},{"Module Type":["64-bit"]},{"Signed Certificates":["fake certificates"]},{"Certificate Origin":["Microsoft Corporation","Broadcom Corporation"]}]}],[{"Slot":[{"Malware Signature":["invalid digital certificates"]},{"Certificate Issuer":["Tencent Technology (Shenzhen) Company Limited"]}]},{"Slot":[{"Malware Signature":["Tencent Technology (Shenzhen) Company Limited."]}]},{"Slot":[{"Malware Signature":["Tencent Technology (Shenzhen) Company Limited."]}]}],[{"Slot":[{"Tactic":["Code Signing"]}]},{"Slot":[{"Tactic":["Code Signing"]},{"Technique":["Revoked Certificates"]},{"Group":["Windshift"]}]},{"Slot":[{"Tactic":["Code Signing"]},{"Technique":["Use of revoked certificates"]},{"Group Name":["Windshift"]}]}],[{"Slot":[{"Signed By":["fake and invalid digital certificates"]}]},{"Slot":[{"Signed By":["fake and invalid digital certificates"]}]},{"Slot":[{"Signed by":["fake and invalid digital certificates"]}]}],[{"Slot":[{"Malicious Activity":["Use of invalid certificate"]}]},{"Slot":[{"Certificate":["invalid"]}]},{"Slot":[{"Malicious Activity":["Use of invalid certificate"]}]}],[{"Slot":[{"Malware Name":["Gelsemium"]},{"Tactic Used":["Unverified signatures on malicious DLLs"]}]},{"Slot":[{"Malware Name":["Gelsemium"]},{"Tactic":["Unverified signatures on malicious DLLs"]}]},{"Slot":[{"Malware Name":["Gelsemium"]},{"Tactic":["Unverified Signatures"]}]}]]')
-    get_result_from_gpt(r'POWERSTATS has established persistence through a scheduled task using the command "C:\Windows\system32\schtasks.exe" /Create /F /SC DAILY /ST 12:00 /TN MicrosoftEdge /TR "c:\Windows\system32\wscript.exe C:\Windows\temp\Windows.vbe".')
+    get_result_from_gpt(r'POWERSTATS has established persistence through a scheduled task using the command "C:\Windows\system32\schtasks.exe" /Create /F /SC DAILY /ST 12:00 /TN MicrosoftEdge /TR "c:\Windows\system32\wscript.exe C:\Windows\temp\Windows.vbe".', API_KEY)

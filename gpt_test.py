@@ -1,7 +1,11 @@
 import openai
+import configparser
 
+config = configparser.ConfigParser()
+config.read('./config.ini')
+API_KEY = config.get('GPT', 'api_key')
 openai.api_base='https://api.ai.cs.ac.cn/v1'
-openai.api_key='sk-GVA9bn7S3fOv7qB1tHCYchnwI5T4yfuQTLZ8sMtiGKsq62zW'
+openai.api_key=API_KEY
 from langchain.llms import OpenAI
 from langchain import PromptTemplate, FewShotPromptTemplate
 from langchain.prompts.pipeline import PipelinePromptTemplate
@@ -9,7 +13,7 @@ from langchain.prompts.pipeline import PipelinePromptTemplate
 llm = OpenAI(
         model='gpt-3.5-turbo',
         openai_api_base='https://api.ai.cs.ac.cn/v1/chat',
-        openai_api_key='sk-GVA9bn7S3fOv7qB1tHCYchnwI5T4yfuQTLZ8sMtiGKsq62zW'
+        openai_api_key=API_KEY
     )
 text = r"""Your goal is to generalizing a scheme of attack techniques from the given input of attack technique descriptions.
 
