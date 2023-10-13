@@ -1,0 +1,290 @@
+[DEBUG] 输入文本：Rocke exploited Apache Struts, Oracle WebLogic (CVE-2017-10271), and Adobe ColdFusion (CVE-2017-3066) vulnerabilities to deliver malware.
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2017-3066
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2017-10271
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.92987007, 'word': ' Rocke', 'start': 0, 'end': 5}, {'entity_group': 'TOOL', 'score': 0.8851059, 'word': ' Apache', 'start': 16, 'end': 22}, {'entity_group': 'TOOL', 'score': 0.9234735, 'word': ' Oracle WebLogic', 'start': 31, 'end': 46}, {'entity_group': 'TOOL', 'score': 0.9229342, 'word': ' Adobe ColdFusion', 'start': 69, 'end': 85}, {'entity_group': 'VULID', 'score': 0.86101806, 'word': ' (CVE-2017-3066)', 'start': 86, 'end': 101}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：Rocke
+[DEBUG] types filter 识别出了 Tool 类型的实体：Apache Struts
+[DEBUG] types filter 识别出了 Tool 类型的实体：WebLogic
+[DEBUG] types filter 识别出了 Tool 类型的实体：Adobe ColdFusion
+[DEBUG] types filter 识别出了 Identity 类型的实体：Oracle
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'CVE-2017-3066': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2017-10271': [('Vulnerability/CVE-id', 'ioc_finder')], 'Rocke': [('ThreatActor', 'SecureBERT_NER')], 'Apache Struts': [('Tool', 'types_filter')], 'WebLogic': [('Tool', 'types_filter')], 'Adobe ColdFusion': [('Tool', 'types_filter')], 'Oracle': [('Identity', 'types_filter')]})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'CVE-2017-3066': ['Vulnerability/CVE-id'], 'CVE-2017-10271': ['Vulnerability/CVE-id'], 'Rocke': ['ThreatActor'], 'Apache Struts': ['Tool'], 'WebLogic': ['Tool'], 'Adobe ColdFusion': ['Tool'], 'Oracle': ['Identity']})
+[DEBUG] 输入文本：Threat Group-3390 has exploited the Microsoft SharePoint vulnerability CVE-2019-0604 and CVE-2021-26855, CVE-2021-26857, CVE-2021-26858, and CVE-2021-27065 in Exchange Server.
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2021-26858
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2021-26855
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2021-26857
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2021-27065
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2019-0604
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.91343886, 'word': ' Threat Group-3390', 'start': 0, 'end': 17}, {'entity_group': 'TOOL', 'score': 0.9105779, 'word': ' Microsoft SharePoint', 'start': 36, 'end': 56}, {'entity_group': 'VULID', 'score': 0.92173946, 'word': ' CVE-2019-0604', 'start': 71, 'end': 84}, {'entity_group': 'VULID', 'score': 0.92025423, 'word': ' CVE-2021-27065', 'start': 141, 'end': 155}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：Threat Group-3390
+[DEBUG] types filter 识别出了 Tool 类型的实体：Microsoft SharePoint
+[DEBUG] types filter 识别出了 Tool 类型的实体：Exchange Server
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'CVE-2021-26858': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2021-26855': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2021-26857': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2021-27065': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2019-0604': [('Vulnerability/CVE-id', 'ioc_finder')], 'Threat Group-3390': [('ThreatActor', 'SecureBERT_NER')], 'Microsoft SharePoint': [('Tool', 'types_filter')], 'Exchange Server': [('Tool', 'types_filter')]})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'CVE-2021-26858': ['Vulnerability/CVE-id'], 'CVE-2021-26855': ['Vulnerability/CVE-id'], 'CVE-2021-26857': ['Vulnerability/CVE-id'], 'CVE-2021-27065': ['Vulnerability/CVE-id'], 'CVE-2019-0604': ['Vulnerability/CVE-id'], 'Threat Group-3390': ['ThreatActor'], 'Microsoft SharePoint': ['Tool'], 'Exchange Server': ['Tool']})
+[DEBUG] 输入文本：During C0018, the threat actors exploited VMWare Horizon Unified Access Gateways that were vulnerable to several Log4Shell vulnerabilities, including CVE-2021-44228, CVE-2021-45046, CVE-2021-45105, and CVE-2021-44832.
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2021-44832
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2021-45105
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2021-44228
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2021-45046
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.8213041, 'word': ' actors', 'start': 25, 'end': 31}, {'entity_group': 'TOOL', 'score': 0.85748065, 'word': ' VMWare', 'start': 42, 'end': 48}, {'entity_group': 'TOOL', 'score': 0.91722685, 'word': ' Log4Shell', 'start': 113, 'end': 122}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：actors
+[DEBUG] sparql filter 识别出了 Tool/Protocol 类型的实体：VMWare
+[DEBUG] types filter 识别出了 Tool 类型的实体：Access
+[DEBUG] types filter 识别出了 Identity 类型的实体：VMWare
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'CVE-2021-44832': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2021-45105': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2021-44228': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2021-45046': [('Vulnerability/CVE-id', 'ioc_finder')], 'actors': [('ThreatActor', 'SecureBERT_NER')], 'VMWare': [('Tool/Protocol', 'sparql_filter'), ('Identity', 'types_filter')], 'Access': [('Tool', 'types_filter')]})
+[DEBUG] 标签合并：一级标签 ('Identity', 'types_filter') 和其他二级标签同时出现，以二级标签为准
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'CVE-2021-44832': ['Vulnerability/CVE-id'], 'CVE-2021-45105': ['Vulnerability/CVE-id'], 'CVE-2021-44228': ['Vulnerability/CVE-id'], 'CVE-2021-45046': ['Vulnerability/CVE-id'], 'actors': ['ThreatActor'], 'VMWare': ['Tool/Protocol'], 'Access': ['Tool']})
+[DEBUG] 输入文本：Siloscape is executed after the attacker gains initial access to a Windows container using a known vulnerability. 
+[DEBUG] LLM的NER结果：[{'entity_group': 'TOOL', 'score': 0.3730202, 'word': ' Siloscape', 'start': 0, 'end': 9}, {'entity_group': 'OS', 'score': 0.85593677, 'word': ' Windows', 'start': 67, 'end': 74}]
+[DEBUG] sparql filter 识别出了 Term/Operating-System 类型的实体：Windows
+[DEBUG] types filter 识别出了 Tool 类型的实体：Windows
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'Windows': [('Term/Operating-System', 'sparql_filter'), ('Tool', 'types_filter')]})
+[DEBUG] 标签合并：一级标签 ('Tool', 'types_filter') 和其他二级标签同时出现，以二级标签为准
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'Windows': ['Term/Operating-System']})
+[DEBUG] 输入文本：APT28 has used a variety of public exploits, including CVE 2020-0688 and CVE 2020-17144, to gain execution on vulnerable Microsoft Exchange; they have also conducted SQL injection attacks against external websites.
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2020-0688
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2020-17144
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.9272196, 'word': ' APT28', 'start': 0, 'end': 5}, {'entity_group': 'VULID', 'score': 0.9114012, 'word': ' CVE', 'start': 55, 'end': 58}, {'entity_group': 'VULID', 'score': 0.8788821, 'word': ' 2020-0688', 'start': 59, 'end': 68}, {'entity_group': 'VULID', 'score': 0.9098685, 'word': ' CVE', 'start': 73, 'end': 76}, {'entity_group': 'VULID', 'score': 0.87182546, 'word': ' 2020-17144,', 'start': 77, 'end': 88}, {'entity_group': 'IDTY', 'score': 0.8994121, 'word': ' Microsoft', 'start': 121, 'end': 130}, {'entity_group': 'ACT', 'score': 0.9271373, 'word': ' SQL injection attacks', 'start': 166, 'end': 187}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：APT28
+[DEBUG] types filter 识别出了 Tool 类型的实体：Microsoft Exchange
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'CVE-2020-0688': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2020-17144': [('Vulnerability/CVE-id', 'ioc_finder')], 'APT28': [('ThreatActor', 'SecureBERT_NER')], 'Microsoft Exchange': [('Tool', 'types_filter')]})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'CVE-2020-0688': ['Vulnerability/CVE-id'], 'CVE-2020-17144': ['Vulnerability/CVE-id'], 'APT28': ['ThreatActor'], 'Microsoft Exchange': ['Tool']})
+[DEBUG] 输入文本：Kimsuky has exploited various vulnerabilities for initial access, including Microsoft Exchange vulnerability CVE-2020-0688.
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2020-0688
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.9243336, 'word': ' Kimsuky', 'start': 0, 'end': 7}, {'entity_group': 'IDTY', 'score': 0.9070309, 'word': ' Microsoft', 'start': 76, 'end': 85}, {'entity_group': 'VULID', 'score': 0.9231655, 'word': ' CVE-2020-0688.', 'start': 109, 'end': 123}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：Kimsuky
+[DEBUG] types filter 识别出了 Tool 类型的实体：Microsoft Exchange
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'CVE-2020-0688': [('Vulnerability/CVE-id', 'ioc_finder')], 'Kimsuky': [('ThreatActor', 'SecureBERT_NER')], 'Microsoft Exchange': [('Tool', 'types_filter')]})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'CVE-2020-0688': ['Vulnerability/CVE-id'], 'Kimsuky': ['ThreatActor'], 'Microsoft Exchange': ['Tool']})
+[DEBUG] 输入文本：During Operation Wocao, threat actors gained initial access by exploiting vulnerabilities in JBoss webservers.
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.46481395, 'word': ' actors', 'start': 31, 'end': 37}, {'entity_group': 'MAL', 'score': 0.86881834, 'word': ' JBoss', 'start': 93, 'end': 98}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：actors
+[DEBUG] SecureBERT NER 识别出了 Malware 类型的实体：JBoss
+[DEBUG] types filter 识别出了 Tool 类型的实体：JBoss
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'actors': [('ThreatActor', 'SecureBERT_NER')], 'JBoss': [('Malware', 'SecureBERT_NER'), ('Tool', 'types_filter')]})
+[DEBUG] 标签合并：SecureBERT_NER与其他模块判断存在冲突，以其他模块的结果为准
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'actors': ['ThreatActor'], 'JBoss': ['Tool']})
+[DEBUG] 输入文本：During Night Dragon, threat actors used SQL injection exploits against extranet web servers to gain access.
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.72186023, 'word': ' Night', 'start': 7, 'end': 12}, {'entity_group': 'APT', 'score': 0.9229132, 'word': ' actors', 'start': 28, 'end': 34}, {'entity_group': 'ACT', 'score': 0.717474, 'word': ' SQL injection', 'start': 40, 'end': 53}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：Night
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：actors
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'Night': [('ThreatActor', 'SecureBERT_NER')], 'actors': [('ThreatActor', 'SecureBERT_NER')]})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'Night': ['ThreatActor'], 'actors': ['ThreatActor']})
+[DEBUG] 输入文本：
+During C0017, APT41 exploited CVE-2021-44207 in the USAHerds application and CVE-2021-44228 in Log4j, as well as other .NET deserialization, SQL injection, and directory traversal vulnerabilities to gain initial access.
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2021-44228
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2021-44207
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.92799467, 'word': ' APT41', 'start': 15, 'end': 20}, {'entity_group': 'VULID', 'score': 0.9209371, 'word': ' CVE-2021-44207', 'start': 31, 'end': 45}, {'entity_group': 'VULID', 'score': 0.9199448, 'word': ' CVE-2021-44228', 'start': 78, 'end': 92}, {'entity_group': 'TOOL', 'score': 0.884558, 'word': ' .NET', 'start': 120, 'end': 124}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：APT41
+[DEBUG] sparql filter 识别出了 Tool 类型的实体：.NET
+[DEBUG] types filter 识别出了 Tool 类型的实体：Log4j
+[DEBUG] types filter 识别出了 Tool 类型的实体：.NET
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'CVE-2021-44228': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2021-44207': [('Vulnerability/CVE-id', 'ioc_finder')], 'APT41': [('ThreatActor', 'SecureBERT_NER')], '.NET': [('Tool', 'sparql_filter'), ('Tool', 'types_filter')], 'Log4j': [('Tool', 'types_filter')]})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'CVE-2021-44228': ['Vulnerability/CVE-id'], 'CVE-2021-44207': ['Vulnerability/CVE-id'], 'APT41': ['ThreatActor'], '.NET': ['Tool'], 'Log4j': ['Tool']})
+[DEBUG] 输入文本：BackdoorDiplomacy has exploited CVE-2020-5902, an F5 BIP-IP vulnerability, to drop a Linux backdoor. BackdoorDiplomacy has also exploited mis-configured Plesk servers.
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2020-5902
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.9257775, 'word': ' BackdoorDiplomacy', 'start': 0, 'end': 17}, {'entity_group': 'TOOL', 'score': 0.82139665, 'word': ' F5', 'start': 50, 'end': 52}, {'entity_group': 'TOOL', 'score': 0.8010801, 'word': ' BIP-IP', 'start': 53, 'end': 59}, {'entity_group': 'OS', 'score': 0.92287207, 'word': ' Linux', 'start': 85, 'end': 90}, {'entity_group': 'APT', 'score': 0.921514, 'word': ' BackdoorDiplomacy', 'start': 101, 'end': 118}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：BackdoorDiplomacy
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：BackdoorDiplomacy
+[DEBUG] sparql filter 识别出了 Term/Operating-System 类型的实体：Linux
+[DEBUG] types filter 识别出了 Tool 类型的实体：Linux
+[DEBUG] types filter 识别出了 Tool 类型的实体：Plesk
+[DEBUG] types filter 识别出了 Identity 类型的实体：F5
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'CVE-2020-5902': [('Vulnerability/CVE-id', 'ioc_finder')], 'BackdoorDiplomacy': [('ThreatActor', 'SecureBERT_NER'), ('ThreatActor', 'SecureBERT_NER')], 'Linux': [('Term/Operating-System', 'sparql_filter'), ('Tool', 'types_filter')], 'Plesk': [('Tool', 'types_filter')], 'F5': [('Identity', 'types_filter')]})
+[DEBUG] 标签合并：一级标签 ('Tool', 'types_filter') 和其他二级标签同时出现，以二级标签为准
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'CVE-2020-5902': ['Vulnerability/CVE-id'], 'BackdoorDiplomacy': ['ThreatActor'], 'Linux': ['Term/Operating-System'], 'Plesk': ['Tool'], 'F5': ['Identity']})
+[DEBUG] 输入文本：GOLD SOUTHFIELD has exploited Oracle WebLogic vulnerabilities for initial compromise.
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.91745526, 'word': ' GOLD SOUTHFIELD', 'start': 0, 'end': 15}, {'entity_group': 'TOOL', 'score': 0.8751936, 'word': ' Oracle WebLogic', 'start': 30, 'end': 45}, {'entity_group': 'VULNAME', 'score': 0.7607958, 'word': ' vulnerabilities', 'start': 46, 'end': 61}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：GOLD SOUTHFIELD
+[DEBUG] types filter 识别出了 Tool 类型的实体：WebLogic
+[DEBUG] types filter 识别出了 Identity 类型的实体：Oracle
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'GOLD SOUTHFIELD': [('ThreatActor', 'SecureBERT_NER')], 'WebLogic': [('Tool', 'types_filter')], 'Oracle': [('Identity', 'types_filter')]})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'GOLD SOUTHFIELD': ['ThreatActor'], 'WebLogic': ['Tool'], 'Oracle': ['Identity']})
+[DEBUG] 输入文本：BlackTech has exploited a buffer overflow vulnerability in Microsoft Internet Information Services (IIS) 6.0, CVE-2017-7269, in order to establish a new HTTP or command and control (C2) server.
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2017-7269
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.90602505, 'word': ' BlackTech', 'start': 0, 'end': 9}, {'entity_group': 'IDTY', 'score': 0.9174128, 'word': ' Microsoft', 'start': 59, 'end': 68}, {'entity_group': 'TOOL', 'score': 0.91282266, 'word': ' Internet Information Services', 'start': 69, 'end': 98}, {'entity_group': 'TOOL', 'score': 0.9000852, 'word': ' (IIS)', 'start': 99, 'end': 104}, {'entity_group': 'PROT', 'score': 0.9306489, 'word': ' HTTP', 'start': 153, 'end': 157}, {'entity_group': 'TOOL', 'score': 0.7038288, 'word': ' (C2)', 'start': 181, 'end': 185}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：BlackTech
+[DEBUG] sparql filter 识别出了 Tool/Windows-commands 类型的实体：command
+[DEBUG] sparql filter 识别出了 Tool 类型的实体：vulnerability
+[DEBUG] sparql filter 识别出了 Tool 类型的实体：HTTP
+[DEBUG] sparql filter 识别出了 Tool 类型的实体：command
+[DEBUG] sparql filter 识别出了 Tool/Protocol 类型的实体：HTTP
+[DEBUG] sparql filter 识别出了 Tool/Windows_Components 类型的实体：Internet Information Services
+[DEBUG] sparql filter 识别出了 Tool/Windows_Components 类型的实体：IIS
+[DEBUG] sparql filter 识别出了 Term/Operating-System 类型的实体：command
+[DEBUG] types filter 识别出了 Tool 类型的实体：Internet Information Services
+[DEBUG] types filter 识别出了 Tool 类型的实体：IIS
+[DEBUG] types filter 识别出了 Identity 类型的实体：Microsoft
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'CVE-2017-7269': [('Vulnerability/CVE-id', 'ioc_finder')], 'BlackTech': [('ThreatActor', 'SecureBERT_NER')], 'command': [('Tool/Windows-commands', 'sparql_filter'), ('Tool', 'sparql_filter'), ('Term/Operating-System', 'sparql_filter')], 'vulnerability': [('Tool', 'sparql_filter')], 'HTTP': [('Tool', 'sparql_filter'), ('Tool/Protocol', 'sparql_filter')], 'Internet Information Services': [('Tool/Windows_Components', 'sparql_filter'), ('Tool', 'types_filter')], 'IIS': [('Tool/Windows_Components', 'sparql_filter'), ('Tool', 'types_filter')], 'Microsoft': [('Identity', 'types_filter')]})
+[DEBUG] 标签合并：一级标签 ('Tool', 'sparql_filter') 和其他二级标签同时出现，以二级标签为准
+[DEBUG] 标签合并：一级标签 ('Tool', 'sparql_filter') 和其他二级标签同时出现，以二级标签为准
+[DEBUG] 标签合并：一级标签 ('Tool', 'types_filter') 和其他二级标签同时出现，以二级标签为准
+[DEBUG] 标签合并：一级标签 ('Tool', 'types_filter') 和其他二级标签同时出现，以二级标签为准
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'CVE-2017-7269': ['Vulnerability/CVE-id'], 'BlackTech': ['ThreatActor'], 'command': ['Term/Operating-System', 'Tool/Windows-commands'], 'vulnerability': ['Tool'], 'HTTP': ['Tool/Protocol'], 'Internet Information Services': ['Tool/Windows_Components'], 'IIS': ['Tool/Windows_Components'], 'Microsoft': ['Identity']})
+[DEBUG] 输入文本：sqlmap can be used to automate exploitation of SQL injection vulnerabilities.
+[DEBUG] LLM的NER结果：[{'entity_group': 'MAL', 'score': 0.8645294, 'word': ' sqlmap', 'start': 0, 'end': 6}, {'entity_group': 'TOOL', 'score': 0.6668459, 'word': ' SQL', 'start': 47, 'end': 50}]
+[DEBUG] SecureBERT NER 识别出了 Malware 类型的实体：sqlmap
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'sqlmap': [('Malware', 'SecureBERT_NER')]})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'sqlmap': ['Malware']})
+[DEBUG] 输入文本：Magic Hound has exploited the Log4j utility (CVE-2021-44228), on-premises MS Exchange servers via "ProxyShell" (CVE-2021-34473, CVE-2021-34523, CVE-2021-31207), and Fortios SSL VPNs (CVE-2018-13379).
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2021-34473
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2021-34523
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2018-13379
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2021-44228
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2021-31207
+[DEBUG] LLM的NER结果：[{'entity_group': 'TOOL', 'score': 0.9051668, 'word': ' Log4j', 'start': 30, 'end': 35}, {'entity_group': 'TOOL', 'score': 0.511103, 'word': ' VPNs', 'start': 177, 'end': 181}]
+[DEBUG] sparql filter 识别出了 Tool/Protocol 类型的实体：SSL
+[DEBUG] types filter 识别出了 Tool 类型的实体：Log4j
+[DEBUG] types filter 识别出了 Tool 类型的实体：on-premises
+[DEBUG] types filter 识别出了 Tool 类型的实体：Exchange
+[DEBUG] types filter 识别出了 Identity 类型的实体：MS
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'CVE-2021-34473': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2021-34523': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2018-13379': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2021-44228': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2021-31207': [('Vulnerability/CVE-id', 'ioc_finder')], 'SSL': [('Tool/Protocol', 'sparql_filter')], 'Log4j': [('Tool', 'types_filter')], 'on-premises': [('Tool', 'types_filter')], 'Exchange': [('Tool', 'types_filter')], 'MS': [('Identity', 'types_filter')]})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'CVE-2021-34473': ['Vulnerability/CVE-id'], 'CVE-2021-34523': ['Vulnerability/CVE-id'], 'CVE-2018-13379': ['Vulnerability/CVE-id'], 'CVE-2021-44228': ['Vulnerability/CVE-id'], 'CVE-2021-31207': ['Vulnerability/CVE-id'], 'SSL': ['Tool/Protocol'], 'Log4j': ['Tool'], 'on-premises': ['Tool'], 'Exchange': ['Tool'], 'MS': ['Identity']})
+[DEBUG] 输入文本：SoreFang can gain access by exploiting a Sangfor SSL VPN vulnerability that allows for the placement and delivery of malicious update binaries.
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.92539996, 'word': ' SoreFang', 'start': 0, 'end': 8}, {'entity_group': 'TOOL', 'score': 0.93003076, 'word': ' Sangfor SSL VPN', 'start': 41, 'end': 56}, {'entity_group': 'VULNAME', 'score': 0.66622216, 'word': ' vulnerability', 'start': 57, 'end': 70}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：SoreFang
+[DEBUG] sparql filter 识别出了 Tool 类型的实体：vulnerability
+[DEBUG] sparql filter 识别出了 Tool/Protocol 类型的实体：SSL
+[DEBUG] sparql filter 识别出了 Tool/Windows_Components 类型的实体：update
+[DEBUG] types filter 识别出了 Tool 类型的实体：update
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'SoreFang': [('ThreatActor', 'SecureBERT_NER')], 'vulnerability': [('Tool', 'sparql_filter')], 'SSL': [('Tool/Protocol', 'sparql_filter')], 'update': [('Tool/Windows_Components', 'sparql_filter'), ('Tool', 'types_filter')]})
+[DEBUG] 标签合并：一级标签 ('Tool', 'types_filter') 和其他二级标签同时出现，以二级标签为准
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'SoreFang': ['ThreatActor'], 'vulnerability': ['Tool'], 'SSL': ['Tool/Protocol'], 'update': ['Tool/Windows_Components']})
+[DEBUG] 输入文本：ZxShell has been dropped through exploitation of CVE-2011-2462, CVE-2013-3163, and CVE-2014-0322.
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2011-2462
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2014-0322
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2013-3163
+[DEBUG] LLM的NER结果：[{'entity_group': 'MAL', 'score': 0.9105127, 'word': ' ZxShell', 'start': 0, 'end': 7}]
+[DEBUG] SecureBERT NER 识别出了 Malware 类型的实体：ZxShell
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'CVE-2011-2462': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2014-0322': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2013-3163': [('Vulnerability/CVE-id', 'ioc_finder')], 'ZxShell': [('Malware', 'SecureBERT_NER')]})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'CVE-2011-2462': ['Vulnerability/CVE-id'], 'CVE-2014-0322': ['Vulnerability/CVE-id'], 'CVE-2013-3163': ['Vulnerability/CVE-id'], 'ZxShell': ['Malware']})
+[DEBUG] 输入文本：Fox Kitten has exploited known vulnerabilities in Fortinet, PulseSecure, and Palo Alto VPN appliances.
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.91165864, 'word': ' Fox Kitten', 'start': 0, 'end': 10}, {'entity_group': 'IDTY', 'score': 0.35641107, 'word': ' Palo Alto', 'start': 77, 'end': 86}, {'entity_group': 'TOOL', 'score': 0.9180184, 'word': ' VPN', 'start': 87, 'end': 90}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：Fox Kitten
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'Fox Kitten': [('ThreatActor', 'SecureBERT_NER')]})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'Fox Kitten': ['ThreatActor']})
+[DEBUG] 输入文本：Ke3chang has compromised networks by exploiting Internet-facing applications, including vulnerable Microsoft Exchange and SharePoint servers.
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.9282391, 'word': ' Ke3chang', 'start': 0, 'end': 8}, {'entity_group': 'TOOL', 'score': 0.4817311, 'word': ' Internet-facing', 'start': 48, 'end': 63}, {'entity_group': 'IDTY', 'score': 0.87601984, 'word': ' Microsoft', 'start': 99, 'end': 108}, {'entity_group': 'TOOL', 'score': 0.87062293, 'word': ' SharePoint', 'start': 122, 'end': 132}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：Ke3chang
+[DEBUG] types filter 识别出了 Tool 类型的实体：Microsoft Exchange
+[DEBUG] types filter 识别出了 Tool 类型的实体：SharePoint
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'Ke3chang': [('ThreatActor', 'SecureBERT_NER')], 'Microsoft Exchange': [('Tool', 'types_filter')], 'SharePoint': [('Tool', 'types_filter')]})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'Ke3chang': ['ThreatActor'], 'Microsoft Exchange': ['Tool'], 'SharePoint': ['Tool']})
+[DEBUG] 输入文本：During Operation CuckooBees, the threat actors exploited multiple vulnerabilities in externally facing servers.
+[DEBUG] LLM的NER结果：[{'entity_group': 'ACT', 'score': 0.9234259, 'word': ' CuckooBees,', 'start': 17, 'end': 28}]
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {})
+[DEBUG] 输入文本：During the SolarWinds Compromise, APT29 exploited CVE-2020-0688 against the Microsoft Exchange Control Panel to regain access to a network.
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2020-0688
+[DEBUG] LLM的NER结果：[{'entity_group': 'TOOL', 'score': 0.6072628, 'word': ' SolarWinds', 'start': 11, 'end': 21}, {'entity_group': 'APT', 'score': 0.9277389, 'word': ' APT29', 'start': 34, 'end': 39}, {'entity_group': 'VULID', 'score': 0.92148876, 'word': ' CVE-2020-0688', 'start': 50, 'end': 63}, {'entity_group': 'IDTY', 'score': 0.89343035, 'word': ' Microsoft', 'start': 76, 'end': 85}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：APT29
+[DEBUG] types filter 识别出了 Tool 类型的实体：Microsoft Exchange
+[DEBUG] types filter 识别出了 Tool 类型的实体：Control Panel
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'CVE-2020-0688': [('Vulnerability/CVE-id', 'ioc_finder')], 'APT29': [('ThreatActor', 'SecureBERT_NER')], 'Microsoft Exchange': [('Tool', 'types_filter')], 'Control Panel': [('Tool', 'types_filter')]})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'CVE-2020-0688': ['Vulnerability/CVE-id'], 'APT29': ['ThreatActor'], 'Microsoft Exchange': ['Tool'], 'Control Panel': ['Tool']})
+[DEBUG] 输入文本：menuPass has leveraged vulnerabilities in Pulse Secure VPNs to hijack sessions.
+[DEBUG] LLM的NER结果：[{'entity_group': 'TOOL', 'score': 0.8849618, 'word': ' Pulse Secure VPNs', 'start': 42, 'end': 59}]
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {})
+[DEBUG] 输入文本：Blue Mockingbird has gained initial access by exploiting CVE-2019-18935, a vulnerability within Telerik UI for ASP.NET AJAX.
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2019-18935
+[DEBUG] ioc finder 识别出了 Observed-data/Domain 类型的实体：asp.net
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.8005121, 'word': ' Blue Mockingbird', 'start': 0, 'end': 16}, {'entity_group': 'TOOL', 'score': 0.6310703, 'word': ' Telerik UI', 'start': 96, 'end': 106}, {'entity_group': 'TOOL', 'score': 0.8884854, 'word': ' ASP.NET', 'start': 111, 'end': 118}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：Blue Mockingbird
+[DEBUG] sparql filter 识别出了 Term/Operating-System 类型的实体：UI
+[DEBUG] types filter 识别出了 Tool 类型的实体：ASP.NET AJAX
+[DEBUG] types filter 识别出了 Identity 类型的实体：Telerik
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'CVE-2019-18935': [('Vulnerability/CVE-id', 'ioc_finder')], 'asp.net': [('Observed-data/Domain', 'ioc_finder')], 'Blue Mockingbird': [('ThreatActor', 'SecureBERT_NER')], 'UI': [('Term/Operating-System', 'sparql_filter')], 'ASP.NET AJAX': [('Tool', 'types_filter')], 'Telerik': [('Identity', 'types_filter')]})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'CVE-2019-18935': ['Vulnerability/CVE-id'], 'asp.net': ['Observed-data/Domain'], 'Blue Mockingbird': ['ThreatActor'], 'UI': ['Term/Operating-System'], 'ASP.NET AJAX': ['Tool'], 'Telerik': ['Identity']})
+[DEBUG] 输入文本：GALLIUM exploited a publicly-facing servers including Wildfly/JBoss servers to gain access to the network.
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.67716235, 'word': ' GALLIUM', 'start': 0, 'end': 7}, {'entity_group': 'MAL', 'score': 0.9161917, 'word': ' Wildfly/JBoss', 'start': 54, 'end': 67}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：GALLIUM
+[DEBUG] SecureBERT NER 识别出了 Malware 类型的实体：Wildfly/JBoss
+[DEBUG] types filter 识别出了 Tool 类型的实体：Wildfly
+[DEBUG] types filter 识别出了 Tool 类型的实体：JBoss
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'GALLIUM': [('ThreatActor', 'SecureBERT_NER')], 'Wildfly/JBoss': [('Malware', 'SecureBERT_NER')], 'Wildfly': [('Tool', 'types_filter')], 'JBoss': [('Tool', 'types_filter')]})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'GALLIUM': ['ThreatActor'], 'Wildfly/JBoss': ['Malware'], 'Wildfly': ['Tool'], 'JBoss': ['Tool']})
+[DEBUG] 输入文本：Earth Lusca has compromised victims by directly exploiting vulnerabilities of public-facing servers, including those associated with Microsoft Exchange and Oracle GlassFish.
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.6152154, 'word': ' Earth Lusca', 'start': 0, 'end': 11}, {'entity_group': 'IDTY', 'score': 0.79448164, 'word': ' Microsoft', 'start': 133, 'end': 142}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：Earth Lusca
+[DEBUG] types filter 识别出了 Tool 类型的实体：Microsoft Exchange
+[DEBUG] types filter 识别出了 Tool 类型的实体：GlassFish
+[DEBUG] types filter 识别出了 Identity 类型的实体：Oracle
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'Earth Lusca': [('ThreatActor', 'SecureBERT_NER')], 'Microsoft Exchange': [('Tool', 'types_filter')], 'GlassFish': [('Tool', 'types_filter')], 'Oracle': [('Identity', 'types_filter')]})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'Earth Lusca': ['ThreatActor'], 'Microsoft Exchange': ['Tool'], 'GlassFish': ['Tool'], 'Oracle': ['Identity']})
+[DEBUG] 输入文本：APT29 has exploited CVE-2019-19781 for Citrix, CVE-2019-11510 for Pulse Secure VPNs, CVE-2018-13379 for FortiGate VPNs, and CVE-2019-9670 in Zimbra software to gain access.
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2019-9670
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2019-11510
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2018-13379
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2019-19781
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.9268389, 'word': ' APT29', 'start': 0, 'end': 5}, {'entity_group': 'VULID', 'score': 0.9155497, 'word': ' CVE-2019-19781', 'start': 20, 'end': 34}, {'entity_group': 'VULID', 'score': 0.9191328, 'word': ' CVE-2019-11510', 'start': 47, 'end': 61}, {'entity_group': 'TOOL', 'score': 0.3925739, 'word': ' Pulse Secure', 'start': 66, 'end': 78}, {'entity_group': 'VULID', 'score': 0.9181049, 'word': ' CVE-2018-13379', 'start': 85, 'end': 99}, {'entity_group': 'TOOL', 'score': 0.42982513, 'word': ' FortiGate', 'start': 104, 'end': 113}, {'entity_group': 'VULID', 'score': 0.92037684, 'word': ' CVE-2019-9670', 'start': 124, 'end': 137}, {'entity_group': 'MAL', 'score': 0.85459685, 'word': ' Zimbra', 'start': 141, 'end': 147}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：APT29
+[DEBUG] SecureBERT NER 识别出了 Malware 类型的实体：Zimbra
+[DEBUG] types filter 识别出了 Tool 类型的实体：Zimbra
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'CVE-2019-9670': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2019-11510': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2018-13379': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2019-19781': [('Vulnerability/CVE-id', 'ioc_finder')], 'APT29': [('ThreatActor', 'SecureBERT_NER')], 'Zimbra': [('Malware', 'SecureBERT_NER'), ('Tool', 'types_filter')]})
+[DEBUG] 标签合并：SecureBERT_NER与其他模块判断存在冲突，以其他模块的结果为准
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'CVE-2019-9670': ['Vulnerability/CVE-id'], 'CVE-2019-11510': ['Vulnerability/CVE-id'], 'CVE-2018-13379': ['Vulnerability/CVE-id'], 'CVE-2019-19781': ['Vulnerability/CVE-id'], 'APT29': ['ThreatActor'], 'Zimbra': ['Tool']})
+[DEBUG] 输入文本：Volatile Cedar has targeted publicly facing web servers, with both automatic and manual vulnerability discovery.  
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.92953116, 'word': ' Volatile Cedar', 'start': 0, 'end': 14}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：Volatile Cedar
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'Volatile Cedar': [('ThreatActor', 'SecureBERT_NER')]})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'Volatile Cedar': ['ThreatActor']})
+[DEBUG] 输入文本：Havij is used to automate SQL injection.
+[DEBUG] LLM的NER结果：[{'entity_group': 'MAL', 'score': 0.92243063, 'word': ' Havij', 'start': 0, 'end': 5}]
+[DEBUG] SecureBERT NER 识别出了 Malware 类型的实体：Havij
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'Havij': [('Malware', 'SecureBERT_NER')]})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'Havij': ['Malware']})
+[DEBUG] 输入文本：Moses Staff has exploited known vulnerabilities in public-facing infrastructure such as Microsoft Exchange Servers.
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.818643, 'word': ' Moses Staff', 'start': 0, 'end': 11}, {'entity_group': 'IDTY', 'score': 0.90904135, 'word': ' Microsoft', 'start': 88, 'end': 97}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：Moses Staff
+[DEBUG] types filter 识别出了 Tool 类型的实体：Microsoft Exchange
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'Moses Staff': [('ThreatActor', 'SecureBERT_NER')], 'Microsoft Exchange': [('Tool', 'types_filter')]})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'Moses Staff': ['ThreatActor'], 'Microsoft Exchange': ['Tool']})
+[DEBUG] 输入文本：Dragonfly has conducted SQL injection attacks, exploited vulnerabilities CVE-2019-19781 and CVE-2020-0688 for Citrix and MS Exchange, and CVE-2018-13379 for Fortinet VPNs.
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2020-0688
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2018-13379
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2019-19781
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.926152, 'word': ' Dragonfly', 'start': 0, 'end': 9}, {'entity_group': 'ACT', 'score': 0.8898014, 'word': ' SQL injection', 'start': 24, 'end': 37}, {'entity_group': 'VULID', 'score': 0.92179507, 'word': ' CVE-2019-19781', 'start': 73, 'end': 87}, {'entity_group': 'VULID', 'score': 0.92281234, 'word': ' CVE-2020-0688', 'start': 92, 'end': 105}, {'entity_group': 'IDTY', 'score': 0.42257422, 'word': ' Citrix', 'start': 110, 'end': 116}, {'entity_group': 'VULID', 'score': 0.92157197, 'word': ' CVE-2018-13379', 'start': 138, 'end': 152}, {'entity_group': 'IDTY', 'score': 0.7513312, 'word': ' Fortinet', 'start': 157, 'end': 165}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：Dragonfly
+[DEBUG] types filter 识别出了 Tool 类型的实体：Exchange
+[DEBUG] types filter 识别出了 Identity 类型的实体：MS
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'CVE-2020-0688': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2018-13379': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2019-19781': [('Vulnerability/CVE-id', 'ioc_finder')], 'Dragonfly': [('ThreatActor', 'SecureBERT_NER')], 'Exchange': [('Tool', 'types_filter')], 'MS': [('Identity', 'types_filter')]})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'CVE-2020-0688': ['Vulnerability/CVE-id'], 'CVE-2018-13379': ['Vulnerability/CVE-id'], 'CVE-2019-19781': ['Vulnerability/CVE-id'], 'Dragonfly': ['ThreatActor'], 'Exchange': ['Tool'], 'MS': ['Identity']})
+[DEBUG] 输入文本：Axiom has been observed using SQL injection to gain access to systems.
+[DEBUG] LLM的NER结果：[{'entity_group': 'TOOL', 'score': 0.6005399, 'word': ' SQL injection', 'start': 30, 'end': 43}]
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {})
+[DEBUG] 输入文本：APT41 exploited CVE-2020-10189 against Zoho ManageEngine Desktop Central, and CVE-2019-19781 to compromise Citrix Application Delivery Controllers (ADC) and gateway devices.
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2020-10189
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2019-19781
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.9291166, 'word': ' APT41', 'start': 0, 'end': 5}, {'entity_group': 'VULID', 'score': 0.9243707, 'word': ' CVE-2020-10189', 'start': 16, 'end': 30}, {'entity_group': 'IDTY', 'score': 0.8342766, 'word': ' Zoho', 'start': 39, 'end': 43}, {'entity_group': 'VULID', 'score': 0.9227228, 'word': ' CVE-2019-19781', 'start': 78, 'end': 92}, {'entity_group': 'IDTY', 'score': 0.75469923, 'word': ' Citrix', 'start': 107, 'end': 113}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：APT41
+[DEBUG] sparql filter 识别出了 Tool 类型的实体：Desktop
+[DEBUG] sparql filter 识别出了 Term/Operating-System 类型的实体：Desktop
+[DEBUG] types filter 识别出了 Identity 类型的实体：Zoho
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'CVE-2020-10189': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2019-19781': [('Vulnerability/CVE-id', 'ioc_finder')], 'APT41': [('ThreatActor', 'SecureBERT_NER')], 'Desktop': [('Tool', 'sparql_filter'), ('Term/Operating-System', 'sparql_filter')], 'Zoho': [('Identity', 'types_filter')]})
+[DEBUG] 标签合并：一级标签 ('Tool', 'sparql_filter') 和其他二级标签同时出现，以二级标签为准
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'CVE-2020-10189': ['Vulnerability/CVE-id'], 'CVE-2019-19781': ['Vulnerability/CVE-id'], 'APT41': ['ThreatActor'], 'Desktop': ['Term/Operating-System'], 'Zoho': ['Identity']})
+[DEBUG] 输入文本：HAFNIUM has exploited CVE-2021-26855, CVE-2021-26857, CVE-2021-26858, and CVE-2021-27065  to compromise on-premises versions of Microsoft Exchange Server, enabling access to email accounts and installation of additional malware.   
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2021-26857
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2021-27065
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2021-26858
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2021-26855
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.8891543, 'word': ' HAFNIUM', 'start': 0, 'end': 7}, {'entity_group': 'VULID', 'score': 0.92348874, 'word': ' CVE-2021-26855,', 'start': 22, 'end': 37}, {'entity_group': 'VULID', 'score': 0.9219464, 'word': ' CVE-2021-26857,', 'start': 38, 'end': 53}, {'entity_group': 'VULID', 'score': 0.91973764, 'word': ' CVE-2021-27065', 'start': 74, 'end': 88}, {'entity_group': 'IDTY', 'score': 0.91006994, 'word': ' Microsoft', 'start': 128, 'end': 137}, {'entity_group': 'TOOL', 'score': 0.9119434, 'word': ' email', 'start': 174, 'end': 179}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：HAFNIUM
+[DEBUG] types filter 识别出了 Tool 类型的实体：on-premises
+[DEBUG] types filter 识别出了 Tool 类型的实体：Microsoft Exchange Server
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'CVE-2021-26857': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2021-27065': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2021-26858': [('Vulnerability/CVE-id', 'ioc_finder')], 'CVE-2021-26855': [('Vulnerability/CVE-id', 'ioc_finder')], 'HAFNIUM': [('ThreatActor', 'SecureBERT_NER')], 'on-premises': [('Tool', 'types_filter')], 'Microsoft Exchange Server': [('Tool', 'types_filter')]})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'CVE-2021-26857': ['Vulnerability/CVE-id'], 'CVE-2021-27065': ['Vulnerability/CVE-id'], 'CVE-2021-26858': ['Vulnerability/CVE-id'], 'CVE-2021-26855': ['Vulnerability/CVE-id'], 'HAFNIUM': ['ThreatActor'], 'on-premises': ['Tool'], 'Microsoft Exchange Server': ['Tool']})
+[DEBUG] 输入文本：MuddyWater has exploited the Microsoft Exchange memory corruption vulnerability (CVE-2020-0688).
+[DEBUG] ioc finder 识别出了 Vulnerability/CVE_id 类型的实体：CVE-2020-0688
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.9268075, 'word': ' MuddyWater', 'start': 0, 'end': 10}, {'entity_group': 'IDTY', 'score': 0.904493, 'word': ' Microsoft', 'start': 29, 'end': 38}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：MuddyWater
+[DEBUG] types filter 识别出了 Tool 类型的实体：Microsoft Exchange
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'CVE-2020-0688': [('Vulnerability/CVE-id', 'ioc_finder')], 'MuddyWater': [('ThreatActor', 'SecureBERT_NER')], 'Microsoft Exchange': [('Tool', 'types_filter')]})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'CVE-2020-0688': ['Vulnerability/CVE-id'], 'MuddyWater': ['ThreatActor'], 'Microsoft Exchange': ['Tool']})
+[DEBUG] 输入文本：APT39 has used SQL injection for initial compromise.
+[DEBUG] LLM的NER结果：[{'entity_group': 'APT', 'score': 0.92947567, 'word': ' APT39', 'start': 0, 'end': 5}, {'entity_group': 'ACT', 'score': 0.652464, 'word': ' SQL injection', 'start': 15, 'end': 28}]
+[DEBUG] SecureBERT NER 识别出了 ThreatActor 类型的实体：APT39
+[DEBUG] 融合前的标签：defaultdict(<class 'list'>, {'APT39': [('ThreatActor', 'SecureBERT_NER')]})
+[DEBUG] 融合后的标签：defaultdict(<class 'list'>, {'APT39': ['ThreatActor']})

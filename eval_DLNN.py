@@ -116,13 +116,14 @@ def load_model(model_name):
     """加载训练好的模型"""
     return torch.load(f'./model/{model_name}.pth')
 
-def attribute(model, event_techniques):
+def attribute(model, event_techniques, ground_truth=None):
     """使用训练好的模型进行归因分析"""
     with torch.no_grad():
         technique_vector = torch.zeros(TECHNIQUES_NUM)
         for technique in event_techniques:
             technique_vector[TECHNIQUE_ATTCK_ID_TO_INDEX[technique]] = 1.0
         output = model(technique_vector)
+        # predict = simple_normalize(output.unsqueeze(0))[0]
         predict = torch.softmax(output, dim=0)
         attribution_result = []
         for index, similarity in enumerate(predict):
@@ -130,7 +131,16 @@ def attribute(model, event_techniques):
         attribution_result.sort(key=lambda x: x[0], reverse=True)
         for index, result in enumerate(attribution_result):
             print(f'Top: {index+1}, Probability: {round(result[0]*100, 2)}%, Group: {result[1]}')
-
+    # 根据答案计算排名指标
+    if ground_truth is not None:
+        loss = 0
+        for index, result in enumerate(attribution_result):
+            if result[1] != ground_truth:
+                loss += result[0]
+            else:
+                print(f'Top: {index+1}, Probability: {round(result[0]*100, 2)}%, Group: {result[1]}')
+                print(f'相似度排名指标得分为：{round(1-loss, 2)}')
+                break
 def train_and_save():
     group2techniques = get_group2techniques_data()
     # 设置超参数
@@ -148,9 +158,9 @@ def train_and_save():
     eval(model, test_loader)
     save_model(model, 'DLNN')
 
-def load_and_attribute(event_techniques):
+def load_and_attribute(event_techniques, ground_truth=None):
     model = load_model('DLNN')
-    attribute(model, event_techniques)
+    attribute(model, event_techniques, ground_truth)
 
 if __name__ == '__main__':
-    load_and_attribute(APT28_1_techniques)
+    load_and_attribute(G1005_1, 'G1005')
